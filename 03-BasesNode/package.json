@@ -9,6 +9,7 @@
   "author": "Alicia Granados",
   "license": "ISC",
   "dependencies": {
-    "color": "^4.2.3"
+    "color": "^4.2.3",
+    "yargs": "^17.7.2"
   }
 }
