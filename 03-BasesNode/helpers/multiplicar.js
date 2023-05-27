@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const crearArchivo = ( base = 5 ) => {
-    return promesa = new Promise((resolve, reject)=>{
+const crearArchivo = async( base = 5 ) => {
+    try{
         console.log('===============')
         console.log(`  TABLA DEL:` , base)
         console.log('===============')
@@ -13,14 +13,11 @@ const crearArchivo = ( base = 5 ) => {
         console.log(salida);
         
         fs.writeFileSync(`tabla-${base}.txt`, salida);
-    
-        ( salida )
-            ? resolve( console.log(`tabla-${base}.txt creado`) )
-            :
-            reject( `No existe archivo creado`)
+        return `tabla-${base}.txt creado` 
             
-        
-    });
+    }catch (error) {
+        throw error
+    }
     
 }
 
