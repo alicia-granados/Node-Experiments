@@ -11,6 +11,12 @@ const argv = require('yargs')
             type: 'boolean',
             default: false,
             describe: 'Muestra la tabla en consola'
+        },
+        'h',{
+            alias: 'hasta',
+            type: 'number',
+            demandOption: 10,
+            describe: 'Indica hasta que numero llegara la multiplicacion'
         }
     )
     .check((argv ,options)=>{
