@@ -5,8 +5,6 @@ import {
     pausa,
     } from './helpers/inquirer.js';
 import { Tareas } from './models/tareas.js';
-
-console.clear();
  
 const main = async () => {
 
@@ -14,6 +12,7 @@ const main = async () => {
   const tareas = new Tareas();
 
   do {
+    //imprimier el menu
     opt = await inquirerMenu();
 
     switch (opt) {
@@ -23,7 +22,7 @@ const main = async () => {
             tareas.crearTarea(desc);
             break;
         case '2':
-            console.log(tareas._listado);
+            console.log(tareas.listadoArr);
             break;
 
     }
