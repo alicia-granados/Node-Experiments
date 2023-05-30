@@ -1,10 +1,15 @@
+import {Tarea}  from "./tarea.js";
+
 class Tareas {
-    _listado = {
+    _listado = { };
 
-    };
-
-    constructor(  ) {
+    constructor( ) {
         this._listado = {}
+    }
+
+    crearTarea ( desc = ''){
+        const tarea = new Tarea(desc)
+        this._listado[tarea.id]= tarea;
     }
 }
 export {Tareas};
