@@ -5,12 +5,18 @@ import {
     pausa,
     } from './helpers/inquirer.js';
 import { Tareas } from './models/tareas.js';
-import { guardarDB } from './helpers/guardarArchivos.js';
+import { guardarDB,leerDB } from './helpers/guardarArchivos.js';
 
 const main = async () => {
 
   let opt = '';
   const tareas = new Tareas();
+
+  const tareasDB = leerDB();
+  if( tareasDB ){
+    //cargar tareas
+    tareas.cargarTareasFromArray(tareasDB);
+  }
 
   do {
     //imprimier el menu
