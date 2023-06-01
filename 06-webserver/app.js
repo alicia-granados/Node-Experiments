@@ -1,22 +1,14 @@
-const http = require('http');
+const express = require('express')
+const app = express()
 
-http.createServer(( req, res) =>{
-    console.log(req);
+app.get('/', (req, res) => {
+  res.send('Home Page')
+});
+app.get('/hola-mundo', (req, res) => {
+    res.send('Hola mundo en su respectiva ruta')
+});
+app.get('*', (req, res) => {
+    res.send('404 | page not found')
+});
 
-    //res.writeHead(200, {'Content-Type': 'text/plain'});
-    /* res.writeHead(200, {'Content-Type': 'application/json'});
-    const persona={
-        id:1,
-        nombre:'Fer'
-    }
-
-    res.write(JSON.stringify(persona))*/
-    res.setHeader('Content-Disposition', 'attachment; filename=lista.csv')
-    res.write('1,nombre\n');
-    res.write('2,adsa\n');
-
-    res.end()
-})
-.listen(8080);
-
-console.log('Escuchando en el puerto 80')
+app.listen(8080)
