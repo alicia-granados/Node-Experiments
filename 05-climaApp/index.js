@@ -1,10 +1,13 @@
 import colors from 'colors';
+import 'dotenv/config';
+
 import { 
     inquirerMenu,
     leerInput,
     pausa
 } from './helpers/inquirer.js';
 import { Busquedas } from './models/busquedas.js';
+
 
 const main = async() =>{
 
