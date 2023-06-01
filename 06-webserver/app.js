@@ -1,9 +1,12 @@
-const express = require('express')
-const app = express()
-port = 8080;
+const express = require('express');
+const hbs = require('hbs');
 
-//TODO: require('hbs')
+const app = express();
+const port = 8080;
+
+// handlebars
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 //servir contenido estatico 
 app.use(express.static('public'));
@@ -14,14 +17,18 @@ app.get('/', (req, res) => {
         titulo: 'Curso de node'
     })
 });
-
-
 app.get('/generic', (req, res) => {
-    res.sendFile(__dirname + '/public/generic.html')
+    res.render('generic',{
+        nombre: 'Alicia granados',
+        titulo: 'Curso de node'
+    })
 });
 
 app.get('/elements', (req, res) => {
-    res.sendFile(__dirname + '/public/elements.html')
+    res.render('elements',{
+        nombre: 'Alicia granados',
+        titulo: 'Curso de node'
+    })
 });
 
 app.get('*', (req, res) => {
