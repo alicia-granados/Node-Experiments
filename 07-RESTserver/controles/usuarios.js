@@ -54,7 +54,6 @@ const usuariosPost =  async (req, res = response) => {
     await usuario.save();
 
     res.json({
-        msg: 'desde ppst',
         usuario
     })
 }
