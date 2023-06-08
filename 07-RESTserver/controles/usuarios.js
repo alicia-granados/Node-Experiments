@@ -22,7 +22,6 @@ const usuariosGet =  async (req = params, res = response ) => {
 const  usuariosPut = async (req, res = response ) => {
     const {id} = req.params;
     const {_id, password, google,correo, ... resto} = req.body;
-
     // TODO: validar contra base de datos
     if( password){
         //encriptar la contraseña
@@ -36,10 +35,13 @@ const  usuariosPut = async (req, res = response ) => {
     })
 }
 
-const usuariosDelete = (req, res = ressponse ) => {
-    res.json({
-        msg: 'delete API - controlador'
-    })
+const usuariosDelete = async (req, res = response ) => {
+    const {id} = req.params;
+
+    //FISICAMENTE LO BORRAMOS
+    //const usuario = await Usuario.findByIdAndDelete(id)
+    const usuario = await Usuario.findByIdAndUpdate(id, { estado: false})
+    res.json(usuario)
 }
 
 const usuariosPost =  async (req, res = response) => {
