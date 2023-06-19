@@ -10,7 +10,7 @@ const coleccionesPermitidas =[
     "roles"
 ]
 
-const buscarUsuarios = async ( termino = '', res = response ){
+const buscarUsuarios = async ( termino = '', res = response ) => { 
     const esMongoId = ObjectId.isValid(termino); //true
     if(esMongoId) {
         const usuario = await Usuario.findById(termino);
