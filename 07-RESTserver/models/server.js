@@ -1,5 +1,6 @@
 const express = require('express');
 var cors = require('cors');
+const fileUpload = require('express-fileupload');
 const { dbConnection } = require('../database/config');
 
 class Server {
@@ -39,6 +40,12 @@ class Server {
 
         //directorio publico
         this.app.use(express.static('public'));
+
+        //FileUpload - carga de archivos
+        this.app.use(fileUpload({
+            useTempFiles : true,
+            tempFileDir : '/tmp/'
+        }));
 
     }
 
