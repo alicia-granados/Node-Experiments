@@ -8,17 +8,22 @@ const socket = io();
 
 //n escuchar eventos
 socket.on('connect', () =>{
-    console.log('Conectado');
+    //console.log('Conectado');
 
     lbloffline.style.display = 'none';
     lblonline.style.display ='';
 });
 
 socket.on('disconnect', () =>{
-    console.log('desconectado del servidor')
+    //console.log('desconectado del servidor')
     lblonline.style.display = 'none';
     lbloffline.style.display ='';
 });
+
+socket.on('enviar-mensaje', () =>{
+    console.log(payload)
+});
+
 
 btnenviar.addEventListener('click' ,() => {
     const mensaje  = txtmensaje.value;

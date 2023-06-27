@@ -51,7 +51,7 @@ class Server {
                 console.log('cliente desconectado')
             });
             socket.on('enviar-mensaje' ,  (payload) => {
-                console.log(payload);
+                this.io.emit('enviar-mensaje', payload);
             })
         });
 
