@@ -1,4 +1,4 @@
-const TicketControl = require("../../models/ticket-control");
+//const TicketControl = require("../../models/ticket-control");
 
 // Referencias del HTML
 const lblNuevoTicket  = document.querySelector('#lblNuevoTicket');
@@ -7,7 +7,7 @@ const btnCrear = document.querySelector('button');
 const socket = io();
 
 socket.on('connect', () => {
-    // console.log('Conectado');
+    //console.log('Conectado');
     btnCrear.disabled  = false;
 
 });

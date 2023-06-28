@@ -16,6 +16,7 @@ class TicketControl {
         this.hoy = new Date().getDate();
         this.tickets = [];
         this.ultimos4 = [];
+
         this.init();
 
     }
@@ -25,7 +26,7 @@ class TicketControl {
             ultimo: this.ultimo,
             hoy: this.hoy,
             tickets: this.tickets,
-            ultimos4: this.ultimos4
+            ultimos4: this.ultimos4,
         }
     }
 
@@ -36,7 +37,7 @@ class TicketControl {
 
             this.tickets = tickets;
             this.ultimo= ultimo;
-            tickets.ultimos4 = ultimos4;
+            this.ultimos4 = ultimos4;
 
         }else{
             //es otro dia
@@ -68,7 +69,7 @@ class TicketControl {
         const ticket = this.tickets.shift(); //this.tickets[0];
         ticket.escritorio = escritorio;
 
-        this.ultimos4. unshift(ticket);
+        this.ultimos4.unshift(ticket);
 
         if(this.ultimos4. length > 4 ){
             this.ultimos4.splice(-1, 1);
