@@ -22,7 +22,7 @@ class TicketControl {
 
     get toJson(){
         return {
-            ultiumo: this.ultimo,
+            ultimo: this.ultimo,
             hoy: this.hoy,
             tickets: this.tickets,
             ultimos4: this.ultimos4
@@ -50,9 +50,9 @@ class TicketControl {
     }
 
     siguiente(){
-        this.ultimo +=1;
-        const ticket = new Ticket(this.ultimo, null);
-        this.tickets.push(ticket);
+        this.ultimo += 1;
+        const ticket = new Ticket(this.ultimo , null)
+        this.tickets.push( ticket );
         
         this.guardarDB();
 
