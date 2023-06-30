@@ -16,7 +16,7 @@ const ulMensaje = document.querySelector('#ulMensaje');
 const  validarJWT  = async () => {
     const token = localStorage.getItem('token') || '';
     if( token.length <=10 ){
-        window.location = 'index.hmtl'
+        window.location = 'index.html'
         throw new Error('No hay token en el servidor')
     }
 
@@ -53,8 +53,9 @@ const conectarSocket = async() =>{
         //TODO: 
     });
 
-    socket.on('usuarios-activos' , () => {
+    socket.on('usuarios-activos' , (payload) => {
         //TODO: 
+        console.log(payload);
     });
 
     socket.on('mensaje-privado' , () => {

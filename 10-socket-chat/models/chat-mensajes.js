@@ -27,7 +27,7 @@ class ChatMensaje {
     }
 
     conectarUsuario(usuario) {
-        this.usuarios(usuario.id) = usuario;
+        this.usuarios[usuario.id] = usuario;
     }
 
     desconectarUsuario(id){
