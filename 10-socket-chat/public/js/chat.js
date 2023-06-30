@@ -56,8 +56,9 @@ const conectarSocket = async() =>{
         dibujarUsuarios(payload);
     });
 
-    socket.on('mensaje-privado' , () => {
+    socket.on('mensaje-privado' , (payload) => {
         //TODO: 
+        console.log('Privado: ', payload)
     })
 }
 const  dibujarUsuarios = (usuarios = [] ) =>{
