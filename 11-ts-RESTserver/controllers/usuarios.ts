@@ -70,10 +70,17 @@ export const putUsuario = async (  req:Request, res : Response) =>{
     }
 }
 
-export const deleteUsuario = (  req:Request, res : Response) =>{
+export const deleteUsuario = async (  req:Request, res : Response) =>{
     const {id} = req.params;
+    const usuario = await Usuario.findByPk(id);
+    if ( !usuario ){
+        return res.status(400).json({
+            msg: 'no existe el usuario con el id' + id 
+        })
+    }
+    await usuario.update({estado:false})
+    //await usuario.destroy();
     res.json({
-        msg:'deleteUsuario',
-        id
+        usuario
     })
 }
